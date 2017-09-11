@@ -1,16 +1,16 @@
 package com.hencoder.hencoderpracticedraw2.practice;
 
+import com.hencoder.hencoderpracticedraw2.R;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-
-import com.hencoder.hencoderpracticedraw2.R;
 
 public class Practice14MaskFilterView extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -40,15 +40,39 @@ public class Practice14MaskFilterView extends View {
         // 用 Paint.setMaskFilter 来设置不同的 BlurMaskFilter
 
         // 第一个：NORMAL
+        paint.setMaskFilter(new BlurMaskFilter(20, BlurMaskFilter.Blur.NORMAL));
         canvas.drawBitmap(bitmap, 100, 50, paint);
 
         // 第二个：INNER
+        paint.setMaskFilter(new BlurMaskFilter(20, BlurMaskFilter.Blur.INNER));
         canvas.drawBitmap(bitmap, bitmap.getWidth() + 200, 50, paint);
 
         // 第三个：OUTER
+        paint.setMaskFilter(new BlurMaskFilter(20, BlurMaskFilter.Blur.OUTER));
         canvas.drawBitmap(bitmap, 100, bitmap.getHeight() + 100, paint);
 
         // 第四个：SOLID
+        paint.setMaskFilter(new BlurMaskFilter(20, BlurMaskFilter.Blur.SOLID));
         canvas.drawBitmap(bitmap, bitmap.getWidth() + 200, bitmap.getHeight() + 100, paint);
+
+//        /**
+//         * Blur inside and outside the original border.
+//         */
+//        NORMAL(0),
+//
+//        /**
+//         * Draw solid inside the border, blur outside.
+//         */
+//        SOLID(1),
+//
+//        /**
+//         * Draw nothing inside the border, blur outside.
+//         */
+//        OUTER(2),
+//
+//        /**
+//         * Blur inside the border, draw nothing outside.
+//         */
+//        INNER(3);
     }
 }

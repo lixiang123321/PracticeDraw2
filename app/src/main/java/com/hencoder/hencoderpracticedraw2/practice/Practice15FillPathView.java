@@ -45,10 +45,12 @@ public class Practice15FillPathView extends View {
 
         // 使用 Paint.getFillPath() 获取实际绘制的 Path
 
-        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);// fill create the close graph
         paint.setStrokeWidth(0);
         // 第一处：获取 Path
         canvas.drawPath(path, paint);
+        paint.getFillPath(path, path1);
+
 
         canvas.save();
         canvas.translate(500, 0);
@@ -60,6 +62,7 @@ public class Practice15FillPathView extends View {
         paint.setStyle(Paint.Style.STROKE);
         // 第二处：设置 Style 为 STROKE 后再获取 Path
         canvas.drawPath(path, paint);
+        paint.getFillPath(path, path2);
         canvas.restore();
 
         canvas.save();
@@ -72,6 +75,7 @@ public class Practice15FillPathView extends View {
         paint.setStrokeWidth(40);
         // 第三处：Style 为 STROKE 并且线条宽度为 40 时的 Path
         canvas.drawPath(path, paint);
+        paint.getFillPath(path, path3);
         canvas.restore();
 
         canvas.save();

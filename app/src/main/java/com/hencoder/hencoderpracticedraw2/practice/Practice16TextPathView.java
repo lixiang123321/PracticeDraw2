@@ -39,6 +39,7 @@ public class Practice16TextPathView extends View {
         super.onDraw(canvas);
 
         canvas.drawText(text, 50, 200, paint);
+        paint.getTextPath(text, 0, text.length(), 50, 600, textPath);// 50, 600, is the start point of the new path.
 
         canvas.drawPath(textPath, pathPaint);
     }
